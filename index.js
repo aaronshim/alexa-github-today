@@ -41,7 +41,7 @@ const trendingQuery = () => {
     return '/search/repositories?access_token=' + encodeURIComponent(GITHUB_API_TOKEN) +
             '&sort=stars' +
             '&order=desc' +
-            '&q=' + encodeURIComponent('created:>' + weekAgo.toISOString().slice(0,10));
+            '&q=' + encodeURIComponent('created:"' + weekAgo.toISOString().slice(0,10) + ' .. ' + (new Date()).toISOString().slice(0,10) + '"');
 };
 const randomElem = (elems) => { return elems.items[Math.floor(Math.random() * elems.items.length)]; };
 
@@ -87,9 +87,9 @@ const handlers = {
     'GetCommitIntent': function () {
         // construct our query
         const path = '/search/commits?access_token=' + encodeURIComponent(GITHUB_API_TOKEN) +
-            '&sort=author-date' +
+            '&sort=committer-date' +
             '&order=desc' +
-            '&q=' + encodeURIComponent('author-date:>=' + (new Date()).toISOString().slice(0,10));
+            '&q=' + encodeURIComponent('committer-date:"' + (new Date()).toISOString().slice(0,10) + ' .. ' + (new Date()).toISOString().slice(0,19) + '"');
 
         // determine how to handle the result
         const handler = (results) => {
