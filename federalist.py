@@ -112,8 +112,8 @@ def build_speechlet_response(title, output, reprompt_text, should_end_session):
         },
         'card': {
             'type': 'Simple',
-            'title': "SessionSpeechlet - " + title,
-            'content': "SessionSpeechlet - " + output
+            'title': title,
+            'content': output
         },
         'reprompt': {
             'outputSpeech': {
@@ -144,7 +144,7 @@ def get_welcome_response():
     card_title = "Welcome"
     speech_output = "Welcome to The Federalist Papers. " \
                     "Please tell me which paper to recite by saying, " \
-                    "read me something from The Federalist Number 9."
+                    "read me something from The Federalist 10."
     # If the user either does not reply to the welcome message or says something
     # that is not understood, they will be prompted again with this text.
     reprompt_text = "Please tell me what to recite by saying, " \
@@ -178,7 +178,7 @@ def read_paragraph_by_number(intent, session):
         speech_output = "There were 85 essays written as a part of the Federalist Papers. Please try again with a number between 1 and 85."
     else:
         paper = data[number - 1]
-        card_title = "Reading from The Federalist Papers #" + paper['number'] + " by " + paper['author']
+        card_title = "The Federalist Papers #" + paper['number']
         speech_output = random.choice(paper['paragraphs'])
 
     return build_response(session_attributes, build_speechlet_response(
@@ -209,7 +209,7 @@ def read_paragraph_by_author(intent, session):
         speech_output = "I couldn't understand which author you wanted me to read. The Federalist Papers were written by Alexander Hamilton, John Jay, and James Madison. Please try saying one of their names."
     else:
         paper = random.choice([x for x in data if re.search(author, x['author'])])
-        card_title = "Reading from The Federalist Papers #" + paper['number'] + " by " + paper['author']
+        card_title = "The Federalist Papers #" + paper['number']
         speech_output = random.choice(paper['paragraphs'])
 
     return build_response(session_attributes, build_speechlet_response(
@@ -225,7 +225,7 @@ def read_random_paragraph(intent, session):
 
     # Find a totally random paper and a quote
     paper = random.choice(data)
-    card_title = "Reading from The Federalist Papers #" + paper['number'] + " by " + paper['author']
+    card_title = " The Federalist Papers #" + paper['number']
     speech_output = random.choice(paper['paragraphs'])
 
     return build_response(session_attributes, build_speechlet_response(
@@ -246,12 +246,12 @@ def read_paper_by_number(intent, session):
         speech_output = "There were 85 essays written as a part of the Federalist Papers. Please try again with a number between 1 and 85."
     else:
         paper = data[number - 1]
-        card_title = "The Federalist Papers #" + paper['number'] + " by " + paper['author'] + "\n" + paper['title']
-        speech_output = " ".join(paper['paragraphs'])
+        card_title = "The Federalist Papers #" + paper['number']
+        speech_output = "\n".join(paper['paragraphs'])
 
         # Except that Alexa can only read up to 8000 characters...
-        if len(speech_output) > 7500:
-            speech_output = speech_output[:7500]
+        if len(speech_output) > 2000:
+            speech_output = speech_output[:2000]
 
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
