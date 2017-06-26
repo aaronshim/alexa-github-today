@@ -247,11 +247,11 @@ def read_paper_by_number(intent, session):
     else:
         paper = data[number - 1]
         card_title = "The Federalist Papers #" + paper['number'] + " by " + paper['author'] + "\n" + paper['title']
-        speech_output = "\n".join(paper['paragraphs'])
+        speech_output = " ".join(paper['paragraphs'])
 
         # Except that Alexa can only read up to 8000 characters...
-        if len(speech_output) > 8000:
-            speech_output = speech_output[:8000]
+        if len(speech_output) > 7500:
+            speech_output = speech_output[:7500]
 
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
