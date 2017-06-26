@@ -168,7 +168,7 @@ def read_paragraph_by_number(intent, session):
     """ Reads a paragraph from a certain Federalist Paper """
 
     session_attributes = {}
-    reprompt_text = ""
+    reprompt_text = "Please specify which essay I should quote from."
     should_end_session = False
 
     # Find our paper by number and select a quote from it
@@ -189,7 +189,7 @@ def read_paragraph_by_author(intent, session):
     """ Reads a paragraph written by a certain Federalist """
 
     session_attributes = {}
-    reprompt_text = ""
+    reprompt_text = "Please specify which author you would like me to quote."
     should_end_session = False
 
     # Clean the input, since it can be not uppercase, come in the form "Alexander Hamilton", etc...
@@ -220,7 +220,7 @@ def read_random_paragraph(intent, session):
     """ Reads any random paragraph from The Federalist Papers """
 
     session_attributes = {}
-    reprompt_text = ""
+    reprompt_text = "What would you like me to read?"
     should_end_session = False
 
     # Find a totally random paper and a quote
@@ -236,7 +236,7 @@ def read_paper_by_number(intent, session):
     """ Reads a certain Federalist Paper """
 
     session_attributes = {}
-    reprompt_text = ""
+    reprompt_text = "Please specify which essay you'd like me to read."
     should_end_session = False
 
     # Find our paper by number and select a quote from it
