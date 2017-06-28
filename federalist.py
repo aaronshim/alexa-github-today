@@ -153,6 +153,27 @@ def get_welcome_response():
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
+def get_help_response():
+    """ If we wanted to initialize the session to have some attributes we could
+    add those here
+    """
+
+    session_attributes = {}
+    card_title = "Help"
+    speech_output = "Welcome to The Federalist Papers. " \
+                    "You can ask me to recite a quote from a particular essay from The Federalist Papers by saying, " \
+                    "read me something from The Federalist 10, " \
+                    "or a quote from a specific author by saying, " \
+                    "read me something by Alexander Hamilton, " \
+                    "or an entire essay by saying " \
+                    "read me The Federalist 10."
+    # If the user either does not reply to the welcome message or says something
+    # that is not understood, they will be prompted again with this text.
+    reprompt_text = "Please tell me what to recite by saying, " \
+                    "Read me something by Alexander Hamilton."
+    should_end_session = False
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))
 
 def handle_session_end_request():
     card_title = "Session Ended"
@@ -169,13 +190,14 @@ def read_paragraph_by_number(intent, session):
 
     session_attributes = {}
     reprompt_text = "Please specify which essay I should quote from."
-    should_end_session = False
+    should_end_session = True
 
     # Find our paper by number and select a quote from it
     number = int(intent['slots']['Number']['value'])
     if number > 85 or number < 1:
         card_title = "Cannot read your specified selection."
-        speech_output = "There were 85 essays written as a part of the Federalist Papers. Please try again with a number between 1 and 85."
+        speech_output = "There were 85 essays written as a part of the Federalist Papers. Please try again with a number between 1 and 85, by saying:\nread me something from The Federalist 10."
+        should_end_session = False
     else:
         paper = data[number - 1]
         card_title = "The Federalist Papers #" + paper['number']
@@ -190,7 +212,7 @@ def read_paragraph_by_author(intent, session):
 
     session_attributes = {}
     reprompt_text = "Please specify which author you would like me to quote."
-    should_end_session = False
+    should_end_session = True
 
     # Clean the input, since it can be not uppercase, come in the form "Alexander Hamilton", etc...
     author = intent['slots']['Federalist']['value']
@@ -206,7 +228,8 @@ def read_paragraph_by_author(intent, session):
     # Find a paper by the chosen author and select a quote from it
     if author is None:
         card_title = "Cannot read your specified selection."
-        speech_output = "I couldn't understand which author you wanted me to read. The Federalist Papers were written by Alexander Hamilton, John Jay, and James Madison. Please try saying one of their names."
+        speech_output = "I couldn't understand which author you wanted me to read. The Federalist Papers were written by Alexander Hamilton, John Jay, and James Madison. Please try saying one of their names. Please try again with a valid author, by saying:\nRead me something by Alexander Hamilton."
+        should_end_session = False
     else:
         paper = random.choice([x for x in data if re.search(author, x['author'])])
         card_title = "The Federalist Papers #" + paper['number']
@@ -221,7 +244,7 @@ def read_random_paragraph(intent, session):
 
     session_attributes = {}
     reprompt_text = "What would you like me to read?"
-    should_end_session = False
+    should_end_session = True
 
     # Find a totally random paper and a quote
     paper = random.choice(data)
@@ -237,13 +260,14 @@ def read_paper_by_number(intent, session):
 
     session_attributes = {}
     reprompt_text = "Please specify which essay you'd like me to read."
-    should_end_session = False
+    should_end_session = True
 
     # Find our paper by number and select a quote from it
     number = int(intent['slots']['Number']['value'])
     if number > 85 or number < 1:
         card_title = "Cannot read your specified selection."
-        speech_output = "There were 85 essays written as a part of the Federalist Papers. Please try again with a number between 1 and 85."
+        speech_output = "There were 85 essays written as a part of the Federalist Papers. Please try again with a number between 1 and 85, by saying:\nread me The Federalist 10."
+        should_end_session = False
     else:
         paper = data[number - 1]
         card_title = "The Federalist Papers #" + paper['number']
@@ -295,7 +319,7 @@ def on_intent(intent_request, session):
     elif intent_name == "ReadPaperByNumber":
         return read_paper_by_number(intent, session)
     elif intent_name == "AMAZON.HelpIntent":
-        return get_welcome_response()
+        return get_help_response()
     elif intent_name == "AMAZON.CancelIntent" or intent_name == "AMAZON.StopIntent":
         return handle_session_end_request()
     else:
