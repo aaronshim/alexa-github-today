@@ -193,7 +193,11 @@ def read_paragraph_by_number(intent, session):
     should_end_session = True
 
     # Find our paper by number and select a quote from it
-    number = int(intent['slots']['Number']['value'])
+    try:
+        number = int(intent['slots']['Number']['value'])
+    except:
+        number = -1
+    
     if number > 85 or number < 1:
         card_title = "Cannot read your specified selection."
         speech_output = "There were 85 essays written as a part of the Federalist Papers. Please try again with a number between 1 and 85, by saying:\nread me something from The Federalist 10."
@@ -215,14 +219,17 @@ def read_paragraph_by_author(intent, session):
     should_end_session = True
 
     # Clean the input, since it can be not uppercase, come in the form "Alexander Hamilton", etc...
-    author = intent['slots']['Federalist']['value']
-    if re.search(r'hamilton', author, re.I):
-        author = 'HAMILTON'
-    elif re.search(r'jay', author, re.I):
-        author = 'JAY'
-    elif re.search(r'madison', author, re.I):
-        author = 'MADISON'
-    else:
+    try:
+        author = intent['slots']['Federalist']['value']
+        if re.search(r'hamilton', author, re.I):
+            author = 'HAMILTON'
+        elif re.search(r'jay', author, re.I):
+            author = 'JAY'
+        elif re.search(r'madison', author, re.I):
+            author = 'MADISON'
+        else:
+            author = None
+    except:
         author = None
 
     # Find a paper by the chosen author and select a quote from it
@@ -263,7 +270,11 @@ def read_paper_by_number(intent, session):
     should_end_session = True
 
     # Find our paper by number and select a quote from it
-    number = int(intent['slots']['Number']['value'])
+    try:
+        number = int(intent['slots']['Number']['value'])
+    except:
+        number = -1
+    
     if number > 85 or number < 1:
         card_title = "Cannot read your specified selection."
         speech_output = "There were 85 essays written as a part of the Federalist Papers. Please try again with a number between 1 and 85, by saying:\nread me The Federalist 10."
