@@ -1,0 +1,120 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "the federalist papers",
+            "intents": [
+                {
+                    "name": "ReadParagraphByAuthor",
+                    "slots": [
+                        {
+                            "name": "Federalist",
+                            "type": "LIST_OF_FEDERALISTS"
+                        }
+                    ],
+                    "samples": [
+                        "read me an excerpt by {Federalist}",
+                        "read an excerpt by {Federalist}",
+                        "read a paragraph by {Federalist}",
+                        "read me something by {Federalist}",
+                        "tell me something that {Federalist} wrote",
+                        "tell me something by {Federalist}"
+                    ]
+                },
+                {
+                    "name": "ReadParagraphByNumber",
+                    "slots": [
+                        {
+                            "name": "Number",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "read me a paragraph from The Federalist number {Number}",
+                        "read me a bit of The Federalist number {Number}",
+                        "read something from The Federalist {Number}",
+                        "read me something from The Federalist {Number}",
+                        "read me a paragraph from The Federalist {Number}",
+                        "tell me something from The Federalist {Number}"
+                    ]
+                },
+                {
+                    "name": "ReadParagraph",
+                    "slots": [],
+                    "samples": [
+                        "read me something",
+                        "read me a random paragraph",
+                        "read me a paragraph",
+                        "tell me something from the Federalist Papers",
+                        "share with me something from The Federalist Papers"
+                    ]
+                },
+                {
+                    "name": "ReadPaperByNumber",
+                    "slots": [
+                        {
+                            "name": "Number",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "read me The Federalist number {Number}",
+                        "read me The Federalist Paper number {Number}",
+                        "read me The entire Federalist {Number}",
+                        "read me The Federalist {Number}",
+                        "recite The Federalist {Number}",
+                        "read The Federalist {Number}"
+                    ]
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                }
+            ],
+            "types": [
+                {
+                    "name": "LIST_OF_FEDERALISTS",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Alexander Hamilton"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Hamilton"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "John Jay"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Jay"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "James Madison"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Madison"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

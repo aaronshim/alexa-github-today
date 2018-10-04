@@ -14,7 +14,7 @@ const Alexa = require('alexa-sdk');
 const https = require('https');
 
 const APP_ID = undefined;  // TODO replace with your app ID (OPTIONAL).
-const GITHUB_API_TOKEN = undefined; // TODO replace with your Github API token
+const GITHUB_API_TOKEN = '637618306120ac717543593c8827501fb662d79d'; // TODO replace with your Github API token
 
 const languageStrings = {
     'en-US': {
@@ -47,7 +47,7 @@ const randomElem = (elems) => { return elems.items[Math.floor(Math.random() * el
 
 const handlers = {
     'LaunchRequest': function () {
-        this.emit('GetTopRepos');
+        this.emit('GetTopTrendingReposIntent');
     },
     'GetTrendingRepoIntent': function () {
         // construct our query

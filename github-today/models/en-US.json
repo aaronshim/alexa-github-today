@@ -1,0 +1,69 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "popular repos",
+            "intents": [
+                {
+                    "name": "GetTrendingRepoIntent",
+                    "slots": [],
+                    "samples": [
+                        "a repo",
+                        "a trending repo",
+                        "give me a repo",
+                        "give me a trending repo",
+                        "tell me a repo",
+                        "tell me a trending repo",
+                        "find a repo",
+                        "find me a repo",
+                        "find me a trending repo",
+                        "recommend a repo"
+                    ]
+                },
+                {
+                    "name": "GetTopTrendingReposIntent",
+                    "slots": [],
+                    "samples": [
+                        "the top trending repos",
+                        "the top repos",
+                        "the trending repos today",
+                        "the top repos today",
+                        "popular repos today",
+                        "some popular repos",
+                        "find me the top repos",
+                        "give me some popular repos",
+                        "tell me some trending repos today",
+                        "the top repositories"
+                    ]
+                },
+                {
+                    "name": "GetCommitIntent",
+                    "slots": [],
+                    "samples": [
+                        "a commit",
+                        "a random commit",
+                        "any commit",
+                        "an interesting commit",
+                        "tell me about a commit",
+                        "show me a commit",
+                        "find me a commit",
+                        "give me a commit",
+                        "tell me about a recent commit"
+                    ]
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                }
+            ],
+            "types": []
+        }
+    }
+}
