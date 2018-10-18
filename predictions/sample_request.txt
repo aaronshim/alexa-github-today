@@ -1,0 +1,84 @@
+{
+	"version": "1.0",
+	"session": {
+		"new": true,
+		"sessionId": "amzn1.echo-api.session.8e40fd85-14de-4fbd-a24a-c4e7a3c90c22",
+		"application": {
+			"applicationId": "amzn1.ask.skill.f433cbde-f663-40ea-8d78-e785c5f460aa"
+		},
+		"user": {
+			"userId": "amzn1.ask.account.AF564VMP2RK6IYL4H45NW6K5ESIDDTBK66PLD747FUHYNZSEAREMAYBK4HGI6772MCTLDUX5T6ZDEJP7VISNHSFKI2O4O2SDMXMHUJOQGHIQ3MGCFASEYVQH4YQGT674YNVA3KPFVNZAH7TJPF5T2YVMEU752KSWYVIE3D5WZY2NK7BLO3WGH5HZ52MUIXPSH5WIHI2MYMGDDUY"
+		}
+	},
+	"context": {
+		"System": {
+			"application": {
+				"applicationId": "amzn1.ask.skill.f433cbde-f663-40ea-8d78-e785c5f460aa"
+			},
+			"user": {
+				"userId": "amzn1.ask.account.AF564VMP2RK6IYL4H45NW6K5ESIDDTBK66PLD747FUHYNZSEAREMAYBK4HGI6772MCTLDUX5T6ZDEJP7VISNHSFKI2O4O2SDMXMHUJOQGHIQ3MGCFASEYVQH4YQGT674YNVA3KPFVNZAH7TJPF5T2YVMEU752KSWYVIE3D5WZY2NK7BLO3WGH5HZ52MUIXPSH5WIHI2MYMGDDUY"
+			},
+			"device": {
+				"deviceId": "amzn1.ask.device.AH4AGSMG5RRADC6TMR3VSPSZ4S22O47SH2NJBPC4FUW243MCUS3C5SB32AGPGXWTPBFLZSU5TQVTTGS7JPSBHVIQKP4A5HBGABWNPUD3Y2Q625RA5EAIEB7SEP3HXW4KNFY6MZ6YWOGFJ5ZUVW4SNECQJLS6T4TXKXGCKX7YAWPL2UUZ36FWM",
+				"supportedInterfaces": {}
+			},
+			"apiEndpoint": "https://api.amazonalexa.com",
+			"apiAccessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjEifQ.eyJhdWQiOiJodHRwczovL2FwaS5hbWF6b25hbGV4YS5jb20iLCJpc3MiOiJBbGV4YVNraWxsS2l0Iiwic3ViIjoiYW16bjEuYXNrLnNraWxsLmY0MzNjYmRlLWY2NjMtNDBlYS04ZDc4LWU3ODVjNWY0NjBhYSIsImV4cCI6MTUzOTgzMzA4NiwiaWF0IjoxNTM5ODI5NDg2LCJuYmYiOjE1Mzk4Mjk0ODYsInByaXZhdGVDbGFpbXMiOnsiY29uc2VudFRva2VuIjpudWxsLCJkZXZpY2VJZCI6ImFtem4xLmFzay5kZXZpY2UuQUg0QUdTTUc1UlJBREM2VE1SM1ZTUFNaNFMyMk80N1NIMk5KQlBDNEZVVzI0M01DVVMzQzVTQjMyQUdQR1hXVFBCRkxaU1U1VFFWVFRHUzdKUFNCSFZJUUtQNEE1SEJHQUJXTlBVRDNZMlE2MjVSQTVFQUlFQjdTRVAzSFhXNEtORlk2TVo2WVdPR0ZKNVpVVlc0U05FQ1FKTFM2VDRUWEtYR0NLWDdZQVdQTDJVVVozNkZXTSIsInVzZXJJZCI6ImFtem4xLmFzay5hY2NvdW50LkFGNTY0Vk1QMlJLNklZTDRINDVOVzZLNUVTSUREVEJLNjZQTEQ3NDdGVUhZTlpTRUFSRU1BWUJLNEhHSTY3NzJNQ1RMRFVYNVQ2WkRFSlA3VklTTkhTRktJMk80TzJTRE1YTUhVSk9RR0hJUTNNR0NGQVNFWVZRSDRZUUdUNjc0WU5WQTNLUEZWTlpBSDdUSlBGNVQyWVZNRVU3NTJLU1dZVklFM0Q1V1pZMk5LN0JMTzNXR0g1SFo1Mk1VSVhQU0g1V0lISTJNWU1HRERVWSJ9fQ.BoZ3Ey2u5SZP2OfEv94wy8jFKI43tgcFN1uVehODMBizBGRXGyxUTmjpzsUUml66Oq2ogdLH2w9a7dSLCAIjhVOL4r19fCPLZT1u4dd3bIpbIHohTlWjitk3J1AP9uL2F6OGkhLbHKdg0ZWuKdKNoXt8_oPUpz0vc2U_1Z0RWsfVeHqFOKkWG3hWIMqXDJdi2zJhgPqmANri-vQfx3Bf4FWZ03TOwcpQincSikcas6qAmrXS2042M0havZXtw2z0HH12epW9hGB7Xvo9YRVTc0hosTiqjQL-3Sro67_1fcb8UoE8ZPTXco_h5RsOx8sPJt0jJusgx8z-8mhrtrX0Dg"
+		}
+	},
+	"request": {
+		"type": "IntentRequest",
+		"requestId": "amzn1.echo-api.request.00e3522a-1213-4072-9f16-48a0cf78dfe6",
+		"timestamp": "2018-10-18T02:24:46Z",
+		"locale": "en-US",
+		"intent": {
+			"name": "Query",
+			"confirmationStatus": "NONE",
+			"slots": {
+				"Market": {
+					"name": "Market",
+					"value": "Donald trump",
+					"resolutions": {
+						"resolutionsPerAuthority": [
+							{
+								"authority": "amzn1.er-authority.echo-sdk.amzn1.ask.skill.f433cbde-f663-40ea-8d78-e785c5f460aa.Prediction",
+								"status": {
+									"code": "ER_SUCCESS_MATCH"
+								},
+								"values": [
+									{
+										"value": {
+											"name": "donald trump",
+											"id": "dd04dfcbd75c95a4acc0c0d92a89f06c"
+										}
+									},
+									{
+										"value": {
+											"name": "donald trump year-end",
+											"id": "ad045e8e1aa3a3baee808c3903fcbdc9"
+										}
+									},
+									{
+										"value": {
+											"name": "donald trump impeached 2019",
+											"id": "d76308af74cf07fe4810e3599b5bf7a4"
+										}
+									},
+									{
+										"value": {
+											"name": "donald trump president year-end",
+											"id": "5a54d4703761a177479b179c0a82bf9d"
+										}
+									}
+								]
+							}
+						]
+					},
+					"confirmationStatus": "NONE",
+					"source": "USER"
+				}
+			}
+		},
+		"dialogState": "STARTED"
+	}
+}

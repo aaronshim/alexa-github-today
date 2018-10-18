@@ -56,7 +56,7 @@ provider:
 
 functions:
   alexa:
-    handler: handler.alexa
+    handler: handler.main
     events:
       - alexaSkill
 
