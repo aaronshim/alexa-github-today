@@ -12,10 +12,11 @@ Constants for default responses that do not need any further computation.
 """
 DEFAULT_STOP_RESPONSE = 'All right. See you next time!'
 DEFAULT_ERROR_MESSAGE = "I'm sorry. I don't know how to do that yet."
+DEFAULT_HELP_MESSAGE = "Try asking me about prediction markets. Ask me to look up midterm elections."
 PREDEFINED_RESPONSES = {
     'AMAZON.FallbackIntent': "I couldn't understand what you were asking. Why don't you ask me about elections?",
     'AMAZON.CancelIntent': DEFAULT_STOP_RESPONSE,
-    'AMAZON.HelpIntent': "Try asking me about prediction markets. Ask me to look up midterm elections.",
+    'AMAZON.HelpIntent': DEFAULT_HELP_MESSAGE,
     'AMAZON.StopIntent': DEFAULT_STOP_RESPONSE,
     'AMAZON.NavigateHomeIntent': DEFAULT_STOP_RESPONSE,
 }
@@ -55,7 +56,8 @@ def market_message(market):
     """
     if len(market['contracts']) > 1:
         return "%s is too complicated." % market['name']
-    return "%s is trading at %d percent." % (market['name'], market['contracts'][0]['lastTradePrice'] * 100)
+    return "%s is trading at %d percent." % \
+        (market['name'], market['contracts'][0]['lastTradePrice'] * 100)
 
 
 def response_from_message(message):
@@ -72,6 +74,33 @@ def response_from_message(message):
         }
     }
 
+
+def can_fulfill(intent):
+    if intent['name'] == 'Query' and intent['slots'] and \
+            intent['slots']['Market'] and intent['slots']['Market']['value']:
+        return {
+            'version': '1.0',
+            'response': {
+                'canFulfillIntent': {
+                    'canFulfill': 'YES',
+                    'slots': {
+                        'Market': {
+                            'canUnderstand': 'YES',
+                            'canFulfill': 'YES'
+                        },
+                    }
+                }
+            }
+        }
+    return {
+        'version': '1.0',
+        'response': {
+            'canFulfillIntent': {
+                'canFulfill': 'NO',
+            }
+        }
+    }
+
 # Main function
 
 
@@ -79,6 +108,14 @@ def main(event, context):
     """
     Entry point for the Alexa action.
     """
+    request_type = event['request']['type']
+    if request_type != 'IntentRequest':
+        if request_type == 'LaunchRequest':
+            return response_from_message(DEFAULT_HELP_MESSAGE)
+        elif request_type == 'CanFulfillIntentRequest':
+            return can_fulfill(event['request']['intent'])
+        elif request_type == 'SessionEndedRequest':
+            return
     intent = event['request']['intent']
     intent_type = intent['name']
     # Get the canned responses out of the way before we do any heavy lifting

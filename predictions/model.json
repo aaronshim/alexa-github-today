@@ -55,6 +55,16 @@
                     "values": [
                         {
                             "name": {
+                                "value": "Trump impeachment"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "midterm elections"
+                            }
+                        },
+                        {
+                            "name": {
                                 "value": "pennsylvania gubernatorial"
                             }
                         },
